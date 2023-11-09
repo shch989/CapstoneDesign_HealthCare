@@ -52,7 +52,7 @@ const ErrorMessage = styled.p`
   font-weight: bold;
 `;
 
-const InputText = () => {
+const InputText = (props) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState('');
 
@@ -70,6 +70,7 @@ const InputText = () => {
 
       setError('');
       setFile(uploadedFile);
+      props.uploadFileHandler()
     }
   };
 
