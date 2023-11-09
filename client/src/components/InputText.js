@@ -10,7 +10,7 @@ const Container = styled.div`
 `;
 
 const InputBox = styled.label`
-  width: 80%;
+  width: 60%;
   padding: 15px;
   border: 2px solid #007AFF;
   border-radius: 10px;
@@ -45,16 +45,8 @@ const Text = styled.p`
   font-weight: bold;
 `;
 
-const ErrorMessage = styled.p`
-  margin-top: 10px;
-  font-size: 14px;
-  color: red; /* 에러 메시지 색상 설정 */
-  font-weight: bold;
-`;
-
 const InputText = (props) => {
   const [file, setFile] = useState(null);
-  const [error, setError] = useState('');
 
   const handleFileUpload = (e) => {
     const uploadedFile = e.target.files[0];
@@ -63,12 +55,11 @@ const InputText = (props) => {
     if (uploadedFile) {
       const fileExtension = uploadedFile.name.split('.').pop();
       if (!allowedExtensions.includes(fileExtension)) {
-        setError('올바른 확장자가 아닙니다. 허용되는 확장자: txt, pdf, docx');
+        alert('올바른 확장자가 아닙니다. 허용되는 확장자: txt, pdf, docx');
         setFile(null);
         return;
       }
 
-      setError('');
       setFile(uploadedFile);
       props.uploadFileHandler()
     }
@@ -84,7 +75,6 @@ const InputText = (props) => {
         id="fileInput"
         onChange={handleFileUpload}
       />
-      {error && <ErrorMessage>{error}</ErrorMessage>}
       {file && <Text>업로드된 파일: {file.name}</Text>}
     </Container>
   );

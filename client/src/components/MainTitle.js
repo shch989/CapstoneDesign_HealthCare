@@ -9,14 +9,15 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.h1`
+  margin: 20px 0;
   font-size: 50px;
-  color: #f0f0f0;
+  color: #8FA5AF;
 `;
 
 const MainTitle = () => {
   return (
     <TitleContainer>
-      <Title>캡스톤 디자인</Title>
+      <Title>AI 기반 영상시청 보조 장치</Title>
     </TitleContainer>
   );
 }

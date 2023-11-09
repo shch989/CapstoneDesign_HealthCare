@@ -9,8 +9,8 @@ import NoneData from './components/NoneData'
 const App = () => {
   const [file, setFile] = useState(false)
 
-  const uploadFileHandler = () => {
-    setFile(true)
+  const uploadFileHandler = (boole) => {
+    setFile(boole)
   }
 
   return (
