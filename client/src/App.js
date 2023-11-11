@@ -4,6 +4,7 @@ import React, { Fragment, useState } from 'react'
 import MainTitle from './components/MainTitle'
 import SubTitle from './components/SubTitle'
 import InputText from './components/InputText'
+import Data from './components/Data'
 import NoneData from './components/NoneData'
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
       <MainTitle />
       <SubTitle />
       <InputText uploadFileHandler={uploadFileHandler} />
-      {!file && <NoneData />}
+      {file ? <Data /> : <NoneData />}
     </Fragment>
   )
 }
